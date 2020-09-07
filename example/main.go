@@ -2,14 +2,21 @@ package main
 
 import (
 	"log"
+	"time"
 
 	"github.com/corporateanon/loginctl"
 )
 
 func main() {
-	lctl, err := loginctl.New([]string{"mk", "ar", "te"})
+	// lctl := loginctl.New([]string{"root", "user", "dev"})
+	lctl, err := loginctl.NewFromRegularUsers()
 	if err != nil {
-		panic(err)
+		log.Panicln(err)
 	}
-	log.Println(lctl.GetSessionInfo())
+
+	for {
+		log.Println(lctl.GetSessionInfo())
+		time.Sleep(time.Second * 2)
+	}
+
 }
