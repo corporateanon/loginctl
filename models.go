@@ -7,7 +7,7 @@ type SessionInfo struct {
 
 type Session struct {
 	ID     string
-	UID    string
+	UID    uint64
 	User   string
 	Active bool
 }
